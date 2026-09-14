@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive Image Processing Lab using Python, Flask, OpenCV and NumPy">
+  <title>Image Processing Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="paper-glow glow-a"></div>
+  <div class="paper-glow glow-b"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Image Processing Lab home">
+      <span class="brand-mark">IP</span>
+      <span><strong>Image Processing Lab</strong><small>Interactive practical demonstrator</small></span>
+    </a>
+    <div class="engine"><span></span> OpenCV Engine Ready</div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="kicker">10 PRACTICALS · COMPUTER VISION</div>
+        <h1>Learn image processing<br><i>by seeing it happen.</i></h1>
+        <p>Upload an image, choose a practical, adjust its parameters and instantly see the algorithm's result. Built for classroom demonstrations, lab records and quick experimentation.</p>
+        <div class="tech-row"><span>Python</span><span>Flask</span><span>OpenCV</span><span>NumPy</span></div>
+      </div>
+      <div class="hero-card">
+        <div class="card-ribbon">LAB WORKSPACE</div>
+        <div class="lens"><div></div></div>
+        <div class="hero-note"><strong>10 / 10 modules</strong><span>Huffman + Template Matching fixed<br>Lossless verification included</span></div>
+      </div>
+    </section>
+
+    <section class="panel" id="uploadSection">
+      <div class="section-title"><div class="step">01</div><div><span>INPUT IMAGE</span><h2>Upload your image</h2></div><small>PNG · JPG · JPEG · BMP · WEBP · Max 16 MB</small></div>
+      <label class="dropzone" id="drop">
+        <input type="file" id="image" accept="image/png,image/jpeg,image/bmp,image/webp">
+        <div class="upload-symbol">↑</div>
+        <div><strong id="fileName">Choose an image</strong><p>or drag & drop it here</p></div>
+        <div class="browse">Browse files</div>
+      </label>
+      <div id="inputPreview" class="input-preview hidden"><img id="inputThumb" alt="Input preview"><div><strong id="inputInfo"></strong><span>Ready for processing</span></div></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title"><div class="step">02</div><div><span>PRACTICALS</span><h2>Choose a practical</h2></div><small>10 essential image-processing modules</small></div>
+      <div class="practical-grid" id="practicals"></div>
+    </section>
+
+    <section class="workspace">
+      <section class="panel controls">
+        <div class="section-title"><div class="step">03</div><div><span>CONTROL ROOM</span><h2 id="opTitle">Select an operation</h2></div></div>
+        <div id="controlsBox"><div class="empty-control"><div>⌁</div><p>Select a practical above to reveal its operations and controls.</p></div></div>
+        <button id="run" class="run" disabled><span>▶</span> Run operation</button>
+        <div id="message" class="message"></div>
+      </section>
+
+      <section class="panel result-panel">
+        <div class="result-head"><div><span>04 · VISUAL RESULT</span><h2>Output preview</h2></div><a id="download" class="download" hidden>↓ Download</a></div>
+        <div class="output-frame"><div class="output-tag">OUTPUT</div><div class="previewbox"><img id="result" alt="Processed output"><div id="placeholder">Your processed result will appear here</div></div></div>
+        <div id="stats" class="stats"></div>
+      </section>
+    </section>
+
+    <section id="insights" class="panel hidden">
+      <div class="section-title"><div class="step chart-step">05</div><div><span>VISUAL ANALYTICS</span><h2>Understand the change</h2></div><small>Normalized grayscale histogram · 32 bins</small></div>
+      <div class="analytics">
+        <div class="metric"><span>INPUT SIZE</span><strong id="inputSize">—</strong></div>
+        <div class="metric"><span>OUTPUT SIZE</span><strong id="outputSize">—</strong></div>
+        <div class="metric"><span>OPERATION</span><strong id="operationName">—</strong></div>
+        <div class="hist-card"><div class="hist-legend"><span>Input</span><span>Output</span></div><canvas id="histCanvas" width="900" height="190"></canvas></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>Image Processing Lab</span><span>Python · Flask · OpenCV · NumPy</span></footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>
